@@ -1,10 +1,11 @@
+#!/usr/bin/env python3
 import socket
 import threading
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_running = True
-ip = str(socket.gethostbyname(socket.gethostname()))
-port = 3001
+ip = '127.0.0.1'
+port = 3333
 
 clients = {}
 
@@ -37,7 +38,7 @@ def handle_client(client, uname):
             elif '--help' in msg:
                 client.send(help.encode('ascii'))
             elif '--broadcast' in msg:
-                msg = msg.replace('**broadcast', '')
+                msg = msg.replace('--broadcast', '')
                 for k, v in clients.items():
                     v.send(msg.encode('ascii'))
             elif '--quit' in msg:
