@@ -8,6 +8,10 @@ def error(e):
     print(e)
     sys.exit(-1)
 
+try:
+    input = raw_input
+except NameError:
+    pass
 
 if __name__ == "__main__":
         
