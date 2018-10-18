@@ -10,7 +10,7 @@ port = 3333
 clients = {}
 
 s.bind((ip, port))
-s.listen()
+s.listen(5)
 print('Server Ready...')
 print('Ip Address of the Server::%s' % ip)
 
